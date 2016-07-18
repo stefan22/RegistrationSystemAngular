@@ -1,0 +1,1 @@
+# AngularJS registration system using google Firebase for authentication
