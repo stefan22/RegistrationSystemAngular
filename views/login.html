@@ -1,10 +1,10 @@
 <section class="card login">
-  <form name="myform"
+  <form name="myform" ng-submit="login()"
     novalidate>
 
     <div class="textintro">
-      <h1>Hi there!</h1>
-      <p>{{ welcome }}</p>
+      <h1><span class="hi">Hi</span> there!</h1>
+      <p ng-show="message">{{ message }}</p>
     </div>
 
     <fieldset>
@@ -18,7 +18,7 @@
       </p>
     </fieldset>
 
-    <button type="submit" class="btn">Login</button>
+    <button ng-disabled="myform.$invalid" type="submit" class="btn">Login</button>
     <p>or <a href="#/register">register</a></p>   
   </form>
 </section>
