@@ -8,12 +8,17 @@
     </div>
 
     <fieldset>
-      <input type="email" name="email" placeholder="Email">
-      <input type="password" name="password" placeholder="Password">
+      <input type="email" name="email" placeholder="Email" ng-model="user.email" ng-required = "true">
+      <p class="error validationerror" ng-show="myform.email.$invalid && myform.email.$touched">
+         Must be a valid email        
+      </p>
+      <input type="password" name="password" placeholder="Password" ng-model="user.password" ng-required="true">
+      <p class="error validationerror" ng-show="myform.password.$invalid && myform.password.$touched">
+        Password is required
+      </p>
     </fieldset>
 
     <button type="submit" class="btn">Login</button>
-    <p>or <a href="#/register">register</a></p>
-    <p>or <a href="#/success">success</a></p>
+    <p>or <a href="#/register">register</a></p>   
   </form>
 </section>
