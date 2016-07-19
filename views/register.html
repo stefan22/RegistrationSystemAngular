@@ -2,7 +2,7 @@
   <form name="myform" novalidate ng-submit="register()">
 
     <div class="textintro">
-      <h1>Register</h1>
+      <h1><span class="hi">Re</span>gister</h1>
       <p ng-show="message">{{message}}</p>
     </div>
 
@@ -26,6 +26,6 @@
     </fieldset>
 
     <button ng-disabled="myform.$invalid" type="submit" class="btn">Register</button>
-    <p>or <a href="#/login">login</a></p>
+    <p>or <a ng-href="#/login">login</a></p>
   </form>
 </section>
