@@ -1,7 +1,7 @@
 var myApp = angular.module('myApp', [
 	'ngRoute',
 	'firebase'
-]);
+])constant('FIREBASE_URL', 'https://proj1-4928b.firebaseapp.com/');
 
 
 myApp.config(['$routeProvider', function($routeProvider) {
