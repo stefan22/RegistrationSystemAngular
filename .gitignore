@@ -1,1 +1,3 @@
 xFiles/**
+node_modules/**
+serviceAccountCredentials.json
