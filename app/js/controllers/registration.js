@@ -2,7 +2,33 @@ myApp.controller('RegistrationController', ['$scope', '$firebaseAuth',  function
 
 	
 	$scope.login = function() {
-		$scope.message = "Welcome " + $scope.user.email;
+
+		var user = firebase.auth().currentUser;
+
+		if (user) {
+			firebase.auth().signOut();
+		} else {
+			var email = $scope.user.email;
+			var password = $scope.user.password;
+		}
+
+		firebase.auth().signInWithEmailAndPassword(email,password)
+		.then(function() {
+			console.log("User signed in!");
+		})
+		.catch(function(error) {
+			var errorCode = error.code;
+			var errorMessage = error.message;
+
+			if(errorCode === 'auth/wrong-password') {
+				console.log('Wrong password')
+			} else {
+				console.log('Error message');
+			}
+		});
+
+
+		$scope.message = "Welcome back " + $scope.user.email;
 	}; //login
 
 	$scope.register = function() {
@@ -11,8 +37,8 @@ myApp.controller('RegistrationController', ['$scope', '$firebaseAuth',  function
 		var password = $scope.user.password;	
 
 		firebase.auth().createUserWithEmailAndPassword(email, password).
-		then(function(userData) {
-			console.log("User created with uid: " + userData.uid);
+		then(function() {
+			console.log("User created successfully");
 		}).
 		catch(function(error) {
         // Handle Errors here.
@@ -29,7 +55,7 @@ myApp.controller('RegistrationController', ['$scope', '$firebaseAuth',  function
       });
 
 
-
+		$scope.message = "At last, You're In! " + $scope.user.firstname + "!"; 
 			
 			
 
